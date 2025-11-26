@@ -11,16 +11,4 @@ public class AppConfig {
     int version() {
         return 55;
     }
-
-    @Bean
-    @Order(2)
-    public ApplicationRunner myApplicationRunner() {
-        return new MyApplicationRunner();
-    }
-
-    @Bean
-    @Order(1)
-    public ApplicationRunner myApplicationRunner2() {
-        return new MyApplicationRunner2();
-    }
 }
