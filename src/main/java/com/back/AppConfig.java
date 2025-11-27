@@ -3,6 +3,8 @@ package com.back;
 import com.back.domain.member.member.entity.Member;
 import com.back.domain.member.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -20,17 +22,27 @@ public class AppConfig {
     private AppConfig self;
 
     @Bean
+    HtmlRenderer htmlRenderer() {
+        return HtmlRenderer.builder().build();
+    }
+
+    @Bean
+    Parser parser() {
+        return Parser.builder().build();
+    }
+
+    @Bean
     int version() {
         return 55;
     }
-//
-//    @Bean
-//    ApplicationRunner baseInitDataApplicationRunner() {
-//        return args -> {
-//            self.work1();
-//            self.work2();
-//        };
-//    }
+
+    @Bean
+    ApplicationRunner makeSampleMemberDataApplicationRunner() {
+        return args -> {
+            self.work1();
+            self.work2();
+        };
+    }
 
     @Transactional
     public void work1() {
