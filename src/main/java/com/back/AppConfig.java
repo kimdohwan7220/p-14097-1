@@ -23,14 +23,14 @@ public class AppConfig {
     int version() {
         return 55;
     }
-
-    @Bean
-    ApplicationRunner baseInitDataApplicationRunner() {
-        return args -> {
-            self.work1();
-            self.work2();
-        };
-    }
+//
+//    @Bean
+//    ApplicationRunner baseInitDataApplicationRunner() {
+//        return args -> {
+//            self.work1();
+//            self.work2();
+//        };
+//    }
 
     @Transactional
     public void work1() {
